@@ -3,7 +3,6 @@ package com.foodappbackend.foodapp;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -14,8 +13,6 @@ public class FoodAppApplication {
 		SpringApplication.run(FoodAppApplication.class, args);
 	}
 
-	@Configuration
-	public static class Myconfiguration{
 		@Bean
 		public WebMvcConfigurer corsConfigurer(){
 			return new WebMvcConfigurer() {
@@ -23,9 +20,7 @@ public class FoodAppApplication {
 				public void addCorsMappings(CorsRegistry registry) {
 					registry.addMapping("/**")
 							.allowedMethods("HEAD", "GET", "PUT", "POST", "DELETE", "PATCH");
-				}
-			};
-		}
+			}
+		};
 	}
-
 }
